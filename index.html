@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Tiles</title>
+        <link rel="stylesheet" href="./style.css"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+        <script type="text/javascript" src="./JS/main.js"></script>
+    </head>
+    <body>
+        <div class="body-wrapper">
+            <div class="left-menu-wrapper side-menu-wrapper menu-wrapper" id="left-menu">
+                <div class="left-menu-inner side-menu-inner">
+                    <div class="tile-grid-settings-menu">
+                        <label for="setting-square-tiles">Enforce Square Tiles: </label>
+                        <input type="checkbox" name="square-tiles" id="setting-square-tiles" checked>
+                        <br>
+                        <label for="nrows"># Rows: </label>
+                        <input class="num-input" type="number" name="numrows" id="nrows" value="6">
+                        <br>
+
+                        <label for="ncols"># Cols: </label>
+                        <input class="num-input" type="number" name="numcols" id="ncols" value="6">
+                        <br>
+
+                        <input type="button" id="apply-master-settings" value="Apply">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="middle-display-wrapper menu-wrapper">
+                <div class="middle-display-inner">
+                    <div class="tile-grid">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="right-menu-wrapper side-menu-wrapper menu-wrapper">
+                <div class="right-menu-inner side-menu-inner">
+                    <label for="height">Height: </label>
+                        <input class="num-input" type="number" name="tile-height" id="height" value="">
+                        <br>
+
+                        <label for="width">Width: </label>
+                        <input class="num-input" type="number" name="tile-width" id="width" value="">
+                        <br>
+                        
+                        <label for="colour">Colour: </label>
+                        <input class="colour-input" type="color" id="colour"/>
+                        <br>
+
+                        <label for="hidden">Hide</label>
+                        <input type="checkbox" name="hidden-checbox" id="hidden">
+                        
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script>
+        createTiles();
+    </script>
+</html>

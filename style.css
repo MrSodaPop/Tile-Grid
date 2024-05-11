@@ -1,0 +1,72 @@
+body
+{
+    width:100vw;
+    height:100vh;
+    background-color: rgb(220, 219, 219);
+    margin:0;
+    border: none;
+    padding:0;
+}
+
+.menu-wrapper
+{
+    float:left;
+}
+
+.side-menu-wrapper
+{
+    width: 20%;
+    height:98%;
+    margin: none;
+    padding: 1vh 1vw 1vh 1vw;;
+}
+.side-menu-inner
+{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(190, 190, 190);
+}
+
+.num-input
+{
+    width:50%;
+}
+
+.middle-display-wrapper
+{
+    width:54%;
+    height:98%;
+    margin: none;
+    padding: 1vh 1vw 1vh 1vw;;
+}
+
+.middle-display-inner
+{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(190, 190, 190);
+}
+
+.tile-grid
+{
+    width:100%;
+    height:100%;
+    margin:none;
+    padding:none;
+}
+
+.tile
+{
+    background-color: rgb(150, 150, 150);
+    float:left;
+}
+
+.tile:hover
+{
+    opacity: 80%;
+}
+
+.tile:active
+{
+    opacity: 50%;
+}
