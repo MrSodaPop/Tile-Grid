@@ -13,7 +13,8 @@ let settings =
         view_height: $("document").height()
     },
     selected: [0,0],
-    tiles: []
+    tiles: [],
+    recent_colours: []
 };
 
 
@@ -76,12 +77,49 @@ function displayTileSettings()
     }
 }
 
+function useRecentColour(i)
+{
+    if (i >= settings.recent_colours.length)
+    {
+        return;
+    }
+    $("#colour").val(settings.recent_colours[i]);
+    let colour = settings.recent_colours.splice(i, 1)[0];
+    settings.recent_colours.reverse();
+    settings.recent_colours.push(colour);
+    settings.recent_colours.reverse();
+    for (let j = 0; j < settings.recent_colours.length; j++)
+    {
+        $(`#recent-${j}`).css("background-color", `${settings.recent_colours[j]}`);
+    }
+}
+
 function updateTileSettings()
 {
     let selection = `#${settings.selected[0]}-${settings.selected[1]}`;
     let curr = settings.tiles[settings.selected];
 
+    colour_temp = curr.colour;
     curr.colour = $("#colour").val();
+    if (curr.colour != colour_temp)
+    {
+        if (settings.recent_colours.indexOf(curr.colour) < 0)
+        {
+            settings.recent_colours.reverse();
+            settings.recent_colours.push(curr.colour);
+            settings.recent_colours.reverse();
+        }
+
+        while (settings.recent_colours.length > 8)
+        {
+            settings.recent_colours.pop()
+        }
+        for (let i = 0; i < settings.recent_colours.length; i++)
+        {
+            $(`#recent-${i}`).css("background-color", `${settings.recent_colours[i]}`);
+        }
+    }
+
     curr.height = $("#height").val();
     curr.width = $("#width").val();
     curr.hidden = $("#hidden").prop('checked');
@@ -127,24 +165,28 @@ $("document").ready(function(){
     displayTileSettings();
     $("html").on("click", function(){
         updateTileSettings();
-    })
+    });
     $("#apply-master-settings").on("click", function(){
         updatePageSettings();
-    })
+    });
     $(".tile-grid").on("click", ".tile" ,function(){
         settings.selected = [parseInt(this.id.split('-')[0]), parseInt(this.id.split('-')[1])]
         displayTileSettings();
-    })
+    });
+    $(".recent-colours").on("click", function(){
+        let id = this.id;
+        useRecentColour(parseInt(id.split('-')[1]));
+    });
     $(".menu-wrapper").on("hover", function(){
         updateTileSettings();
     });
     $("html").on("keyup", function(){
         updateTileSettings();
-    })
+    });
     $("html").on("keydown", function(){
         updateTileSettings();
-    })
+    });
     $("html").on("hover", function(){
         updateTileSettings();
-    })
+    });
 })

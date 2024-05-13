@@ -44,7 +44,7 @@ body
 {
     width: 100%;
     height: 100%;
-    background-color: rgb(190, 190, 190);
+    background-color: #bebebe;
 }
 
 .tile-grid
@@ -57,7 +57,7 @@ body
 
 .tile
 {
-    background-color: rgb(150, 150, 150);
+    background-color: #969696;
     float:left;
 }
 
@@ -69,4 +69,28 @@ body
 .tile:active
 {
     opacity: 50%;
+}
+
+.recent-colours
+{
+    float:left;
+    width:4vw;
+    height:4vw;
+    margin:0.1vw;
+    padding:none;
+
+    background-color: #969696;
+    list-style-type: none
+}
+
+.recent-master-list
+{
+    margin:none;
+    padding:none;
+    list-style-type: none
+}
+
+.recent-colours:hover
+{
+    opacity: 80%;
 }
